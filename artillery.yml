@@ -1,0 +1,23 @@
+# artillery.yml (versión mejorada)
+config:
+  target: "http://localhost:4000"
+  phases:
+    - duration: 60
+      arrivalRate: 50
+      name: "Ataque Nuclear 🌋"
+scenarios:
+  - name: "Atacar Ruta Vulnerable"
+    flow:
+      - get:
+          url: "/api/vulnerable"
+          capture:
+            - json: "$.message"
+              as: "response"
+
+  - name: "Atacar Ruta Protegida"
+    flow:
+      - get:
+          url: "/api/protegida"
+          capture:
+            - json: "$.error"
+              as: "error"
