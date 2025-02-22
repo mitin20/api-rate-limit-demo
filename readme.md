@@ -35,19 +35,19 @@ cd api-rate-limit-demo
 docker-compose up --build
 ```
 
-Esto construirá la imagen de Docker y levantará la API en `http://localhost:3000`.
+Esto construirá la imagen de Docker y levantará la API en `http://localhost:4000`.
 
 ### 3. Prueba la API
 
 - **Ruta sin protección**:  
   ```bash
-  curl http://localhost:3000/api/insegura
+  curl http://localhost:4000/api/vulnerable
   ```
   Respuesta: `{"message":"¡Soy una API sin defensas! 🚨"}`
 
 - **Ruta protegida**:  
   ```bash
-  curl http://localhost:3000/api/protegida
+  curl http://localhost:4000/api/protegida
   ```
   Respuesta: `{"message":"¡Estoy blindada contra ataques! 🛡️"}`
 
@@ -56,7 +56,7 @@ Esto construirá la imagen de Docker y levantará la API en `http://localhost:30
 Instala Artillery (si no lo tienes):
 
 ```bash
-npm install -g artillery
+sudo npm install -g artillery
 ```
 
 Ejecuta la prueba de estrés:
@@ -84,7 +84,7 @@ api-rate-limit-demo/
 
 ## 📊 Resultados Esperados
 
-- **Ruta Insegura**: El servidor colapsará bajo un ataque masivo.
+- **Ruta vulnerable**: El servidor colapsará bajo un ataque masivo.
 - **Ruta Protegida**: Bloqueará peticiones después de 150 requests por minuto, manteniendo el servidor estable.
 
 ---

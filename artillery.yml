@@ -14,10 +14,10 @@ scenarios:
             - json: "$.message"
               as: "response"
 
-  - name: "Atacar Ruta Protegida"
-    flow:
-      - get:
-          url: "/api/protegida"
-          capture:
-            - json: "$.error"
-              as: "error"
+  # - name: "Atacar Ruta Protegida"
+  #   flow:
+  #     - get:
+  #         url: "/api/protegida"
+  #         capture:
+  #           - json: "$.error"
+  #             as: "error"
